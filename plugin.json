@@ -1,0 +1,5 @@
+{
+    "description" : "Provides statistics on the Redis database server",
+	"command" : "python index.py",
+	"metrics" : ["REDIS_CONNECTED_CLIENTS", "REDIS_KEYSPACE_HITS", "REDIS_KEYSPACE_MISSES", "REDIS_EXPIRED_KEYS", "REDIS_EVICTED_KEYS", "REDIS_TOTAL_COMMANDS_PROCESSED", "REDIS_TOTAL_CONNECTIONS_RECEIVED", "REDIS_USED_MEMORY_RSS"]
+}
