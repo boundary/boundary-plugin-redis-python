@@ -1,6 +1,7 @@
 import redis
 import sys
 import time
+import socket
 
 if not 1 <= len(sys.argv) <= 5:
     print "Usage: %s [redis_server] [redis_port] [poll_interval] [redis_password]" % sys.argv[0]
@@ -14,6 +15,8 @@ redis_server = sys.argv[1] if len(sys.argv) >= 2 else 'localhost'
 redis_port = int(sys.argv[2]) if len(sys.argv) >= 3 else 6379
 poll_interval = int(sys.argv[3]) if len(sys.argv) >= 4 else 1000
 redis_password = sys.argv[4] if len(sys.argv) >= 5 else None
+
+hostname = socket.gethostname()
 
 r = redis.Redis(redis_server, redis_port, password=redis_password)
 
@@ -47,7 +50,7 @@ while True:
     info = r.info()
 
     for v in values_to_report:
-        print "%s: %d" % ('REDIS_' + v.upper(), accum(v, info[v]))
+        print "%s %d %s" % ('REDIS_' + v.upper(), accum(v, info[v]), hostname)
 
     time.sleep(float(poll_interval) / 1000)
 
