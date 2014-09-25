@@ -3,21 +3,15 @@ import sys
 import time
 import socket
 
-if not 1 <= len(sys.argv) <= 5:
-    print "Usage: %s [redis_server] [redis_port] [poll_interval] [redis_password]" % sys.argv[0]
-    print "[redis_server] is the server to connect to (the default is 'localhost')"
-    print "[redis_port] is the TCP port to connect to (the default is 6379)"
-    print "[poll_interval] is the interval, in milliseconds, at which we display statistics; default is 1000"
-    print "[redis_password] is the password to use to authenticate with Redis (default is none)"
-    sys.exit(-1)
+import boundary_plugin
 
-redis_server = sys.argv[1] if len(sys.argv) >= 2 else 'localhost'
-redis_port = int(sys.argv[2]) if len(sys.argv) >= 3 else 6379
-poll_interval = int(sys.argv[3]) if len(sys.argv) >= 4 else 1000
-redis_password = sys.argv[4] if len(sys.argv) >= 5 else None
+params = boundary_plugin.parse_params()
+redis_server = params.get('redis_hostname', 'localhost')
+redis_port = int(params.get('redis_port', 6379))
+redis_password = params.get('redis_password', None)
 
-hostname = socket.gethostname()
-
+if not redis_password:
+    redis_password = None
 r = redis.Redis(redis_server, redis_port, password=redis_password)
 
 _accum = dict()
@@ -50,7 +44,7 @@ while True:
     info = r.info()
 
     for v in values_to_report:
-        print "%s %d %s" % ('REDIS_' + v.upper(), accum(v, info[v]), hostname)
+        boundary_plugin.boundary_report_metric('REDIS_' + v.upper(), accum(v, info[v]))
 
-    time.sleep(float(poll_interval) / 1000)
+    boundary_plugin.sleep_interval()
 

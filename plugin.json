@@ -1,5 +1,31 @@
 {
-    "description" : "Provides statistics on the Redis database server",
-	"command" : "python index.py",
-	"metrics" : ["REDIS_CONNECTED_CLIENTS", "REDIS_KEYSPACE_HITS", "REDIS_KEYSPACE_MISSES", "REDIS_EXPIRED_KEYS", "REDIS_EVICTED_KEYS", "REDIS_TOTAL_COMMANDS_PROCESSED", "REDIS_TOTAL_CONNECTIONS_RECEIVED", "REDIS_USED_MEMORY_RSS"]
+	"description" : "Provides statistics on the Redis database server",
+	"command" : "python -u index.py",
+	"metrics" : ["REDIS_CONNECTED_CLIENTS", "REDIS_KEYSPACE_HITS", "REDIS_KEYSPACE_MISSES", "REDIS_EXPIRED_KEYS", "REDIS_EVICTED_KEYS", "REDIS_TOTAL_COMMANDS_PROCESSED", "REDIS_TOTAL_CONNECTIONS_RECEIVED", "REDIS_USED_MEMORY_RSS"],
+	"paramSchema": [
+		{
+		    "title": "Redis Hostname",
+		    "name": "redis_hostname",
+		    "description": "Redis server to connect to (defaults to localhost)",
+		    "type": "string",
+		    "default": "",
+		    "required": false
+		},
+		{
+		    "title": "Redis Port",
+		    "name": "redis_port",
+		    "description": "Port to connect to Redis on (defaults to 6379)",
+		    "type": "string",
+		    "default": "",
+		    "required": false
+		},
+		{
+		    "title": "Redis Password",
+		    "name": "redis_password",
+		    "description": "Password to authenticate Redis with (defaults to none)",
+		    "type": "string",
+		    "default": "",
+		    "required": false
+		}
+	]
 }
