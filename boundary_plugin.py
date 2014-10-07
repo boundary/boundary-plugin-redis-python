@@ -37,7 +37,7 @@ def boundary_report_metric(name, value, source=None, timestamp=None):
     if timestamp:
         timestamp = unix_time_millis(timestamp)
     out = "%s %s %s%s" % (name, value, source, (' %d' % timestamp) if timestamp else '')
-    print out
+    print(out)
 
     global metric_log_file
     if metric_log_file:
