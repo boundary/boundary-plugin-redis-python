@@ -1,86 +1,87 @@
 {
+
+ 
     "result": [
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Commands Processed",
+            "description": "Total number of commands processed by the server",
             "displayName": "Redis - Commands Processed",
             "displayNameShort": "Redis - Com Proc",
             "isDisabled": 0,
-            "name": "REDISX_COMMANDS_PROCESSED",
+            "name": "REDISEX_TOTAL_COMMANDS_PROCESSED",
             "unit": "number"
         },
         {
             "defaultAggregate": "MAX",
             "defaultResolutionMS": null,
-            "description": "Redis - Connected Clients",
+            "description": "Number of client connections (excluding connections from slaves)",
             "displayName": "Redis - Connected Clients",
             "displayNameShort": "Redis - Con Clients",
             "isDisabled": 0,
-            "name": "REDISX_CONNECTED_CLIENTS",
+            "name": "REDISEX_CONNECTED_CLIENTS",
             "unit": "number"
         },
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Connections Received",
+            "description": "Total number of connections accepted by the server",
             "displayName": "Redis - Connections Received",
             "displayNameShort": "Redis - Conn Recv",
             "isDisabled": 0,
-            "name": "REDISX_CONNECTIONS_RECEIVED",
+            "name": "REDISEX_TOTAL_CONNECTIONS_RECEIVED",
             "unit": "number"
         },
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Key Evictions",
+            "description": "Number of evicted keys due to maxmemory limit",
             "displayName": "Redis - Key Evictions",
             "displayNameShort": "Redis - Key Evict",
             "isDisabled": 0,
-            "name": "REDISX_KEY_EVICTIONS",
+            "name": "REDISEX_EVICTED_KEYS",
             "unit": "number"
         },
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Key Hits",
+            "description": "Number of failed lookup of keys in the main dictionary",
             "displayName": "Redis - Key Hits",
             "displayNameShort": "Redis - Key Hits",
             "drillFromMetricName": null,
             "isDisabled": 0,
-            "name": "REDISX_KEY_HITS",
+            "name": "REDISEX_KEYSPACE_HITS",
             "unit": "number"
         },
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Key Misses",
+            "description": "Number of successful lookup of keys in the main dictionary",
             "displayName": "Redis - Key Misses",
             "displayNameShort": "Redis - Key Miss",
             "drillFromMetricName": null,
             "isDisabled": 0,
-            "name": "REDIS_KEY_MISSES",
+            "name": "REDISEX_KEYSPACE_MISSES",
             "unit": "number"
         },
         {
             "defaultAggregate": "SUM",
             "defaultResolutionMS": null,
-            "description": "Redis - Keys Expired",
+            "description": "Total number of key expiration events",
             "displayName": "Redis - Keys Expired",
             "displayNameShort": "Redis - Keys Exp",
             "isDisabled": 0,
-            "name": "REDISX_KEYS_EXPIRED",
+            "name": "REDISEX_EXPIRED_KEYS",
             "unit": "number"
         },
         {
             "defaultAggregate": "MAX",
             "defaultResolutionMS": null,
-            "description": "Redis - Used Memory",
+            "description": "Number of bytes that Redis allocated as seen by the operating system (a.k.a resident set size)",
             "displayName": "Redis - Used Memory",
             "displayNameShort": "Redis - Used Mem",
-            "id": 11685,
             "isDisabled": 0,
-            "name": "REDISX_USED_MEMORY",
+            "name": "REDISEX_USED_MEMORY_RSS",
             "unit": "percent"
         }
     ]

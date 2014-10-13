@@ -1,14 +1,14 @@
 {
   "description" : "Awaiting Certification - Provides statistics on the Redis database server",
   "command" : "python -u index.py",
-  "metrics" : [ "REDIS_CONNECTED_CLIENTS",
-                "REDIS_KEYSPACE_HITS",
-                "REDIS_KEYSPACE_MISSES",
-                "REDIS_EXPIRED_KEYS",
-                "REDIS_EVICTED_KEYS",
-                "REDIS_TOTAL_COMMANDS_PROCESSED",
-                "REDIS_TOTAL_CONNECTIONS_RECEIVED",
-                "REDIS_USED_MEMORY_RSS"],
+  "metrics" : [ "REDISEX_CONNECTED_CLIENTS",
+                "REDISEX_KEYSPACE_HITS",
+                "REDISEX_KEYSPACE_MISSES",
+                "REDISEX_EXPIRED_KEYS",
+                "REDISEX_EVICTED_KEYS",
+                "REDISEX_TOTAL_COMMANDS_PROCESSED",
+                "REDISEX_TOTAL_CONNECTIONS_RECEIVED",
+                "REDISEX_USED_MEMORY_RSS"],
 
   "dashboards" : [{
                    "name" : "redis",

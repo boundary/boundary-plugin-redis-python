@@ -47,7 +47,7 @@ while True:
 
     for v,aggregate in values_to_report:
         val = accum(v, info[v]) if aggregate else info[v]
-        boundary_plugin.boundary_report_metric('REDIS_' + v.upper(), val)
+        boundary_plugin.boundary_report_metric('REDISX_' + v.upper(), val)
 
     boundary_plugin.sleep_interval()
 
